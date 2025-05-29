@@ -1,16 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // needed for static export
-  basePath: '/bluecircomall', // GitHub Pages serves from /<repo-name>
+  output: 'export',
   images: {
-    unoptimized: true, // required for static exports
+    unoptimized: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  basePath: '/bluecircomall',
+  assetPrefix: '/bluecircomall',
 };
 
 export default nextConfig;
