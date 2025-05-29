@@ -25,6 +25,9 @@ import { Badge } from "@/components/ui/badge"
 import { type DeliveryLocation, useCartStore } from "@/lib/cart-store"
 
 const formSchema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+  rememberMe: z.boolean().optional(),
   name: z.string().min(1, "Location name is required"),
   address: z.string().min(1, "Address is required"),
   city: z.string().min(1, "City is required"),
@@ -48,6 +51,9 @@ export function LocationSelector() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      email: "",
+      password: "",
+      rememberMe: false,
       name: "",
       address: "",
       city: "",
